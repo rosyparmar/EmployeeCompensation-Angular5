@@ -9,13 +9,22 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12">
-      <ul style="margin-top: 80px">
-        <li *ngFor="let emp of employees">
-          <span> {{emp.firstName + ' ' + emp.lastName}}</span>
-          <span> <button [routerLink]="['/employees/', emp._id]">View Employee Details</button></span>
-          <hr>
-        </li>
-      </ul>
+      <table class="table table-striped" style="margin-top: 80px">
+        <thead>
+        <tr>
+          <th><b>Name</b></th>
+          <th><b>Username</b></th>
+          <th><b>Date Of Joining</b></th>
+          <th><b>In Hand Pay</b></th>
+        </tr>
+        </thead>
+        <tr *ngFor="let emp of employees">
+          <td> <a [routerLink]="['/employees/', emp._id]">{{emp.firstName + ' ' + emp.lastName}}</a> </td>
+          <td>{{emp.username}}</td>
+          <td>{{emp.dateOfJoining}}</td>
+          <td>{{emp.inHandPay}}</td>
+        </tr>
+      </table>
 
     </div>
   </div>

@@ -5,30 +5,20 @@
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var bcrypt = require("bcrypt-nodejs");
-// var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 
 
 module.exports = function (app, models) {
 
   var userModel = models.userModel;
 
-  var googleConfig = {
-    clientID     : "1052218151815-d9obetefsa3lvvk8oh6s3plsakbfuiv0.apps.googleusercontent.com",
-    clientSecret : "G-EiYFD5LnU657MdzLYQL2rT",
-    callbackURL  : "http://localhost:4200/auth/google/callback"
-  };
-
   app.post("/api/createUser", register);
   app.post("/api/logout", logout);
   app.post ('/api/loggedIn', loggedIn);
   app.post('/api/login', passport.authenticate('local'), login);
-  // app.get('auth/google', passport.authenticate('google', { scope : ['profile', 'email']}));
 
   passport.use(new LocalStrategy(localStrategy));
   passport.serializeUser(serializeUser);
   passport.deserializeUser(deserializeUser);
-
-  // passport.use('google', new GoogleStrategy(googleConfig, googleLogin));
 
   function localStrategy(username, password, done) {
     userModel

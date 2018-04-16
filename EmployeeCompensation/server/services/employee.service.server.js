@@ -16,19 +16,31 @@ module.exports = function (app, models) {
   app.delete("/api/employee/:employeeId", deleteEmployee);
   app.put("/api/employee/:employeeId", updateEmployee);
 
+
+
   function createEmployee(req, res) {
 
     var employee = req.body;
+    var empUsername = employee.username;
     employeeModel
-      .createEmployee(employee)
-      .then(
-        function (employee) {
-          res.json(employee);
-        },
-        function (error) {
-          res.statusCode(400).send(error);
+      .findEmployeeByUsername(employee.username)
+      .then(function (data) {
+        if (data) {
+          res.status(400).send('Username is in use!');
+          return;
+        } else {
+          employeeModel
+            .createEmployee(employee)
+            .then(
+              function (employee) {
+                res.json(employee);
+              },
+              function (error) {
+                res.statusCode(400).send(error);
+              }
+            )
         }
-      )
+      });
   }
 
   function deleteEmployee(req, res) {
@@ -40,6 +52,17 @@ module.exports = function (app, models) {
         },
         function (error) {
           res.statusCode(404).send(error);
+        });
+  }
+
+  function findEmployeeByUsername(empname, res) {
+    employeeModel
+      .findEmployeeByUsername(empname)
+      .then(function (emp) {
+          res.json(emp);
+        },
+        function (err) {
+          res.statusCode(404).send(err);
         });
   }
 
@@ -73,6 +96,8 @@ module.exports = function (app, models) {
     employeeModel
       .getEmployees()
       .then(function (employees) {
+          console.log("Lets Rock");
+          console.log(employees);
           res.json(employees);
         },
         function (error) {

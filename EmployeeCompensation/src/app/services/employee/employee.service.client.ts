@@ -18,9 +18,10 @@ export class EmployeeService {
 
     console.log("In employee client side" + emp);
     var body = {
+      username : emp.username,
       firstName: emp.firstName,
       lastName: emp.lastName,
-      dateOfJoinng: emp.dateOfJoinng,
+      dateOfJoining: emp.dateOfJoining,
       baseSalary: emp.baseSalary,
       deduction401: emp.deduction401,
       deductionMedical: emp.deductionMedical,
@@ -76,7 +77,7 @@ export class EmployeeService {
     var body = {
       firstName: emp.firstName,
       lastName: emp.lastName,
-      dateOfJoinng: emp.dateOfJoinng,
+      dateOfJoining: emp.dateOfJoining,
       baseSalary: emp.baseSalary,
       deduction401: emp.deduction401,
       deductionMedical: emp.deductionMedical,

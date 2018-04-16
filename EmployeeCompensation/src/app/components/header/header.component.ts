@@ -7,7 +7,6 @@ import { SharedService } from '../../services/shared/shared.service.client';
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
-  // providers : [UserService, SharedService]
 })
 export class HeaderComponent implements OnInit {
 
@@ -17,9 +16,7 @@ export class HeaderComponent implements OnInit {
   constructor(private router: Router, private _UserService: UserService, private _sharedService : SharedService){}
 
   ngOnInit(){
-    console.log("********** Header Loaded");
     console.log(this._sharedService.employee);
-    console.log("**********");
     if(this._sharedService.employee == ''){
       this.flag = false;
     }

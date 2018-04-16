@@ -8,7 +8,7 @@ import { SharedService } from '../../../services/shared/shared.service.client';
   selector: 'app-sign-up',
   templateUrl: './sign-up.component.html',
   styleUrls: ['./sign-up.component.css'],
-  providers : [UserService, SharedService]
+  // providers : [UserService, SharedService]
 })
 export class SignUpComponent implements OnInit {
 

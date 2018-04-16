@@ -13,7 +13,8 @@ module.exports = function () {
     findEmployeeById: findEmployeeById,
     deleteEmployee: deleteEmployee,
     updateEmployee: updateEmployee,
-    getEmployees :getEmployees
+    getEmployees :getEmployees,
+    findEmployeeByUsername : findEmployeeByUsername
   };
 
   return api;
@@ -30,7 +31,8 @@ module.exports = function () {
     delete emp._id;
     return Employee
       .update({_id: empId},{
-        $set: {firstName : emp.firstName,
+        $set: {
+          firstName : emp.firstName,
           lastName : emp.lastName,
           dateOfJoining : emp.dateOfJoining,
           baseSalary :emp.baseSalary,
@@ -48,6 +50,10 @@ module.exports = function () {
 
   function createEmployee(emp){
     return  Employee.create(emp);
+  }
+
+  function findEmployeeByUsername(username) {
+    return Employee.findOne({username: username});
   }
 
 };

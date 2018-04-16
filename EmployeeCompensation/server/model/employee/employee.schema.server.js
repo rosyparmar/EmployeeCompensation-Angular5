@@ -5,7 +5,8 @@
 module.exports = function () {
   var mongoose = require("mongoose");
 
-  var UserSchema = mongoose.Schema ({
+  var EmployeeSchema = mongoose.Schema ({
+    username : String,
     firstName : String,
     lastName : String,
     dateOfJoining : Date,
@@ -17,5 +18,5 @@ module.exports = function () {
     dateCreated : {type: Date, default : Date.now} //Date.now is the current time
   }, {collection: "employeeDatabase.employeePayroll" });
 
-  return UserSchema;
+  return EmployeeSchema;
 };
