@@ -1,0 +1,25 @@
+<app-header></app-header>
+
+<div class="container">
+  <div class="row">
+    <a [routerLink]="['employee/', 'edit']" class="btn text-right" style="float: right"><u>Add Employee</u></a>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <ul style="margin-top: 80px">
+        <li *ngFor="let emp of employees">
+          <span> {{emp.firstName + ' ' + emp.lastName}}</span>
+          <span> <button [routerLink]="['/employees/', emp._id]">View Employee Details</button></span>
+          <hr>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>
+

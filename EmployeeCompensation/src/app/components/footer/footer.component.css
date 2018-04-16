@@ -1,0 +1,17 @@
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #f1f1f1;
+  height:7%;
+  color: #777;
+  text-align: center;
+}
+
+#p1 {
+  text-align: left;
+  margin-left: 20px;
+  margin-top: 15px;
+}
+

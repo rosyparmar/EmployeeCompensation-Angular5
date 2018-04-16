@@ -1,0 +1,46 @@
+<app-header></app-header>
+
+<div class="container">
+  <div class="row">
+    <h1 style="text-align: center;">Enter details to sign up</h1>
+    <div style="width: 30%; margin: 30px auto;">
+
+      <div *ngIf="error"
+           class="alert alert-danger">
+        {{error}}
+      </div>
+
+      <form (ngSubmit)="register()" #f="ngForm">
+
+        <div class="form-group">
+          <input class="form-control"
+                 ngModel
+                 required
+                 #username="ngModel"
+                 type="text"
+                 name="username"
+                 placeholder="Choose a username">
+          <span class="help-block" *ngIf="!username.valid && username.touched">Please enter username!</span>
+        </div>
+
+        <div class="form-group">
+          <input class="form-control"
+                 ngModel
+                 required
+                 #password="ngModel"
+                 type="password"
+                 name="password"
+                 placeholder="Password">
+          <span class="help-block" *ngIf="!password.valid && password.touched">Please enter password!</span>
+        </div>
+
+        <div class="form-group">
+          <button class="btn btn-primary btn-block" [disabled]="!f.form.valid">Sign Up</button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>

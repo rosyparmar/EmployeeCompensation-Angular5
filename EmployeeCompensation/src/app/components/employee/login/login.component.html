@@ -1,0 +1,64 @@
+<app-header></app-header>
+<div class="container">
+  <div class="row">
+    <div *ngIf="errorFlag"
+         class="alert alert-danger">
+      {{errorMsg}}
+    </div>
+
+    <h1 style="text-align: center;">DatisDemo</h1>
+    <h6 style="text-align: center;">Enter your credentials to login</h6>
+    <div style="width: 30%; margin: 30px auto;">
+
+      <form (ngSubmit)="login()" #f="ngForm">
+
+        <div class="form-group">
+          <input class="form-control"
+                 type="text"
+                 name="username"
+                 ngModel
+                 required
+                 #username="ngModel"
+                 placeholder="username">
+          <span class="help-block" *ngIf="!username.valid && username.touched">Please enter username!</span>
+        </div>
+
+        <div class="form-group">
+          <input class="form-control"
+                 type="password"
+                 name="password"
+                 ngModel
+                 required
+                 #password="ngModel"
+                 placeholder="password" required>
+          <span class="help-block" *ngIf="!password.valid && password.touched">Please enter password!</span>
+        </div>
+
+        <div class="form-group">
+          <button class="btn btn-primary btn-block"
+                  type="submit"
+                  [disabled]="!f.valid">Login
+          </button>
+        </div>
+
+        <div class="form-group">
+          <button class="btn btn-primary btn-block"
+                  [routerLink]="['sign-up']">Sign Up!
+          </button>
+        </div>
+
+        <!--<div class="form-group">-->
+        <!--<button class="btn btn-primary btn-block"-->
+                <!--[routerLink]="['auth', '/google']"-->
+                <!--type="button">-->
+          <!--<span class="fa fa-google-plus"></span>-->
+          <!--Google-->
+        <!--</button>-->
+        <!--</div>-->
+
+      </form>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>
+

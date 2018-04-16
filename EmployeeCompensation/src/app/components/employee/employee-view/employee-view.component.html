@@ -1,0 +1,81 @@
+<app-header></app-header>
+
+<div class="container">
+  <div class="row">
+    <a (click) = "deleteEmployee()" class="btn text-right" style="float: right"><u>Delete Employee</u></a>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <h1 style="text-align: center;">Update Employees</h1>
+    <div style="width:30%; margin: 30px auto;">
+      <form (ngSubmit)="updateEmployee()" #employeeForm="ngForm">
+
+        <div class="form-group">
+          <input [(ngModel)]="employee.firstName"
+                 class="form-control"
+                 name="firstName"
+                 type="text"
+                 placeholder="First Name" required>
+        </div>
+
+        <div class="form-group">
+          <input [(ngModel)]="employee.lastName"
+                 class="form-control"
+                 type="text"
+                 name="lastName"
+                 placeholder="Last Name" required>
+        </div>
+
+        <div class="form-group">
+          <input [(ngModel)]="employee.dateOfJoining"
+                 class="form-control"
+                 type="Date"
+                 name="dateOfJoining"
+                 placeholder="Date of Joining" required>
+        </div>
+
+        <div class="form-group">
+          <input [(ngModel)]="employee.baseSalary"
+                 class="form-control"
+                 type="number"
+                 name="baseSalary"
+                 placeholder="Base Salary" required>
+        </div>
+
+        <div class="form-group">
+          <input [(ngModel)]="employee.deduction401"
+                 class="form-control"
+                 type="number"
+                 name="deduction401"
+                 placeholder="401 Deduction" required>
+        </div>
+
+        <div class="form-group">
+          <input [(ngModel)]="employee.deductionMedical"
+                 class="form-control"
+                 type="number"
+                 name="deductionMedical"
+                 placeholder="Medical Deduction" required>
+        </div>
+
+        <div class="form-group">
+          <input [(ngModel)]="employee.stateTax"
+                 class="form-control"
+                 type="number"
+                 name="stateTax"
+                 placeholder="State Tax" required>
+        </div>
+
+
+        <div class="form-group">
+          <button type="submit" class="btn btn-success" [disabled]="!employeeForm.form.valid">Update</button>
+        </div>
+
+      </form>
+      <a [routerLink]="['/employees']">Go back</a>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>
