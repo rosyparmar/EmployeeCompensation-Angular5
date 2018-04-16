@@ -15,13 +15,16 @@ import {Router} from "@angular/router";
 export class EmployeeListComponent implements OnInit {
 
   employees: Employee[] = [];
+  user = {};
 
   constructor(private router: Router, private _employeeService: EmployeeService, private _sharedService : SharedService) {
   }
 
+
+
   ngOnInit() {
 
-    console.log("Employee list" ,this._sharedService.employee);
+    this.user = this._sharedService.employee;
     this._employeeService.getEmployees()
       .subscribe(
         (data) => {

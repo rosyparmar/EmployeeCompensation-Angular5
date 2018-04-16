@@ -2,7 +2,12 @@
 
 <div class="container">
   <div class="row">
-    <a [routerLink]="['employee/', 'edit']" class="btn text-right" style="float: right"><u>Add Employee</u></a>
+    <div class="col-xs-4">
+      <h4>Welcome <i>{{user.username}} </i>!!!</h4>
+    </div>
+    <div class="col-xs-8">
+      <a [routerLink]="['employee/', 'edit']" class="btn text-right" style="float: right"><u>Add Employee</u></a>
+    </div>
   </div>
 </div>
 

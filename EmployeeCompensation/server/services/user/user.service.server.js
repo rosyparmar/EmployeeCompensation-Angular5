@@ -123,44 +123,5 @@ module.exports = function (app, models) {
     res.send(req.isAuthenticated() ? req.employee : '0');
   }
 
-  // function googleLogin(token, refreshToken, profile, done) {
-  //   // response.send(200);
-  //   userModel
-  //     .findGoogleUser(profile.id)
-  //     .then(
-  //       function(googleUser) {
-  //         if (googleUser) {
-  //           return done(null, googleUser);
-  //         }
-  //         else {
-  //           var email = profile.emails[0].value;
-  //           var splitEmail = email.split("@");
-  //           var googleUser = {
-  //             username: splitEmail[0],
-  //             firstName: profile.name.givenName,
-  //             lastName: profile.name.familyName,
-  //             email: email,
-  //             google: {
-  //               id: profile.id,
-  //               token: token
-  //             }
-  //           };
-  //           userModel
-  //             .createUser(googleUser)
-  //             .then(
-  //               function(user) {
-  //                 done(null, user);
-  //               }
-  //             );
-  //         }
-  //       }
-  //     );
-  // }
-
-  function loggedIn(req, res) {
-    res.send(req.isAuthenticated() ? req.user : '0');
-  }
-
-
 };
 

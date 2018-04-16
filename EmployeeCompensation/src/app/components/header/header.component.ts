@@ -16,7 +16,6 @@ export class HeaderComponent implements OnInit {
   constructor(private router: Router, private _UserService: UserService, private _sharedService : SharedService){}
 
   ngOnInit(){
-    console.log(this._sharedService.employee);
     if(this._sharedService.employee == ''){
       this.flag = false;
     }
